@@ -1,0 +1,18 @@
+body {
+  font-family: 'Kurale', sans-serif;
+}
+
+h2 {
+  color: white;
+}
+
+.banner-image {
+  height: 29rem;
+  width: 100rem;
+  position: relative;
+  background-size: auto;
+  object-fit: fill;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-image: url("/images/whisky-banner.png");
+}
