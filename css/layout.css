@@ -46,12 +46,4 @@ form {
   .container {
     max-width: 900px;
   }
-
-  .column-full {
-    width: 100%;
-  }
-
-  .column-half {
-    width: 50%;
-  }
 }
