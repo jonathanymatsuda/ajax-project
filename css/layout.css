@@ -1,0 +1,49 @@
+.hidden {
+  display: none !important;
+}
+
+.container {
+  max-width: 575px;
+  margin: auto;
+}
+
+form {
+  width: 25rem;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.column-full,
+.column-half {
+  width: 100%;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 900px;
+  }
+}

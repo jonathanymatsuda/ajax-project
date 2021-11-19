@@ -1,0 +1,105 @@
+body {
+  font-family: 'Kurale', sans-serif;
+}
+
+.main-background {
+  background: rgba(101, 1, 10, 0.9);
+}
+
+.banner-image {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-image: url("/images/whiskey-banner.png");
+}
+
+.header-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #d0b8b8;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.white-text {
+  color: white;
+}
+
+.whiskey-box,
+.distillery-box {
+  width: 100%;
+  height: 30px;
+}
+
+.date-box,
+.age-box {
+  width: 80%;
+  height: 30px;
+}
+
+#smoky-profile,
+#intensity-profile {
+  width: 100%;
+}
+
+textarea {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.7rem;
+  width: 100%;
+  height: 100px;
+  padding: 5px 5px;
+  border-radius: 3px;
+  resize: none;
+}
+
+.final-score-box {
+  height: 30px;
+}
+
+.age-tag {
+  position: relative;
+  left: 40px;
+}
+
+.save-button {
+  width: 50px;
+  height: 30px;
+  padding: 6px, 12px, 6px, 12px;
+  margin-top: 15px;
+  background-color: #fdce55;
+  border-radius: 3px;
+  cursor: pointer;
+  border: none;
+}
+
+label {
+  font-size: 0.7rem;
+}
+
+input {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.7rem;
+  border-radius: 3px;
+  border: 1px gray;
+  padding: 5px;
+}
+
+::placeholder {
+  color: lightgray;
+}
+
+.smokiness-bar,
+.intensity-bar {
+  position: relative;
+  bottom: 17px;
+}
+
+input,
+textarea,
+label {
+  line-height: 2;
+  margin-bottom: 10px;
+}
