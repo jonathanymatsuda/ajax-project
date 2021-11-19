@@ -59,6 +59,11 @@ textarea {
   height: 30px;
 }
 
+.age-tag {
+  position: relative;
+  left: 40px;
+}
+
 .save-button {
   width: 50px;
   height: 30px;
@@ -79,6 +84,7 @@ input {
   font-size: 0.7rem;
   border-radius: 3px;
   border: 1px gray;
+  padding: 5px;
 }
 
 ::placeholder {
@@ -88,7 +94,7 @@ input {
 .smokiness-bar,
 .intensity-bar {
   position: relative;
-  bottom: 15px;
+  bottom: 17px;
 }
 
 input,
