@@ -12,6 +12,16 @@ form {
   margin: auto;
 }
 
+ul {
+  width: 100%;
+  margin: auto;
+}
+
+li {
+  width: 75%;
+  margin: auto;
+}
+
 .row {
   display: flex;
   width: 100%;
@@ -44,6 +54,6 @@ form {
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 900px;
+    max-width: 1000px;
   }
 }

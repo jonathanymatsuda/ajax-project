@@ -20,12 +20,20 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  padding-left: 10px;
   color: #d0b8b8;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .white-text {
   color: white;
+}
+
+.red-text {
+  color: #fa7373;
+}
+
+.text-shadow {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .whiskey-box,
@@ -102,4 +110,13 @@ textarea,
 label {
   line-height: 2;
   margin-bottom: 10px;
+}
+
+li {
+  padding: 10px;
+  list-style-type: none;
+  border: 1px solid #afafaf;
+  border-radius: 5px;
+  background-color: rgba(54, 8, 8, 0.5);
+  line-height: 1.5px;
 }
