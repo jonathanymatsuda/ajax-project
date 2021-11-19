@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AJAX Project</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kurale&family=Rubik:wght@300&display=swap" rel="stylesheet">
   <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -17,8 +17,8 @@
    <div class="banner-image">
      <div class="overlay">
        <div class="row">
-         <div class="column-half banner-nav">
-          <h2 class="header-text">The Whisk[e]y Journal</h2>
+         <div class="column-half">
+          <h2 class="header-text">The Whisk[e]y Lounge</h2>
          </div>
        </div>
      </div>
@@ -26,7 +26,78 @@
   </header>
   <main>
     <div class="container">
-
+      <form id="journal-form" data-view="entry-form" class="application-view">
+        <div class="row text-align-center">
+          <div class="column-full">
+            <h3 class="white-text">The Whiskey Tasting Journal</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <div>
+              <label for="whiskey-name" class="white-text">Whiskey Name</label>
+            </div>
+            <input type="text" name="whiskey" id="whiskey-name" class="whiskey-box" placeholder="Ex: Hibiki Harmony, Macallan" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <div>
+              <label for="distillery-name" class="white-text">Distillery</label>
+            </div>
+            <input type="text" name="distillery" id="distillery-name" class=" distillery-box" placeholder="Ex: Laphroaig Distillery" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-half">
+            <div>
+              <label for="date-tried" class="white-text">Date</label>
+            </div>
+            <input type="date" name="date" id="date-tried" class="date-box" required>
+          </div>
+          <div class="column-half">
+            <div>
+              <label for="age-whiskey" class="white-text">Age</label>
+            </div>
+             <input type="text" name="age" id="age-whiskey" class="age-box" placeholder="Age" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <label for="smoky-profile" class="smokiness-bar white-text">Sweet</label>
+            <input type="range" name="smokiness" id="smoky-profile" min="0" max="100" step="1">
+            <label for="smoky-profile" class="smokiness-bar white-text">Peaty</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <label for="intensity-profile" class="intensity-bar white-text">Smooth</label>
+            <input type="range" name="intensite" id="intensity-profile" min="0" max="100" step="1">
+            <label for="intensity-profile" class="intensity-bar white-text">Intense</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <div>
+              <label for="tasting-notes" class="white-text">Tasting Notes</label>
+            </div>
+            <textarea name="taste" id="taste-profile" class="tasting-box" placeholder="Ex: Orange, Peach, Chocolate"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <div>
+              <label for="final-score" class="white-text">Final Score</label>
+            </div>
+            <input type="text" name="score" id="final-score" class="final-score-box" placeholder="0-100" required>
+          </div>
+        </div>
+        <div class="row text-align-center">
+          <div class="column-full">
+            <button type="submit" class="save-button white-text">Save</button>
+          </div>
+        </div>
+      </form>
     </div>
   </main>
   <script src="js/data.js"></script>
