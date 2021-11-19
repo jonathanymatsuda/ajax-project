@@ -37,7 +37,9 @@
             <div>
               <label for="whiskey-name" class="white-text">Whiskey Name</label>
             </div>
-            <input type="text" name="whiskey" id="whiskey-name" class="whiskey-box" placeholder="Ex: Hibiki Harmony, Macallan" required>
+            <div class="row justify-center">
+              <input type="text" name="whiskey" id="whiskey-name" class="whiskey-box" placeholder="Ex: Hibiki Harmony, Macallan" required>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -45,7 +47,9 @@
             <div>
               <label for="distillery-name" class="white-text">Distillery</label>
             </div>
-            <input type="text" name="distillery" id="distillery-name" class=" distillery-box" placeholder="Ex: Laphroaig Distillery" required>
+            <div class="row justify-center">
+              <input type="text" name="distillery" id="distillery-name" class=" distillery-box" placeholder="Ex: Laphroaig Distillery" required>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -53,27 +57,35 @@
             <div>
               <label for="date-tried" class="white-text">Date</label>
             </div>
-            <input type="date" name="date" id="date-tried" class="date-box" required>
+            <div class="row">
+              <input type="date" name="date" id="date-tried" class="date-box" required>
+            </div>
           </div>
           <div class="column-half">
             <div>
               <label for="age-whiskey" class="white-text">Age</label>
             </div>
-             <input type="text" name="age" id="age-whiskey" class="age-box" placeholder="Age" required>
+            <div class="row justify-end">
+              <input type="text" name="age" id="age-whiskey" class="age-box" placeholder="Age" required>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="column-full">
-            <label for="smoky-profile" class="smokiness-bar white-text">Sweet</label>
             <input type="range" name="smokiness" id="smoky-profile" min="0" max="100" step="1">
-            <label for="smoky-profile" class="smokiness-bar white-text">Peaty</label>
+            <div class="row justify-between">
+              <label for="smoky-profile" class="smokiness-bar white-text">Sweet</label>
+              <label for="smoky-profile" class="smokiness-bar white-text">Peaty</label>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="column-full">
-            <label for="intensity-profile" class="intensity-bar white-text">Smooth</label>
             <input type="range" name="intensite" id="intensity-profile" min="0" max="100" step="1">
-            <label for="intensity-profile" class="intensity-bar white-text">Intense</label>
+            <div class="row justify-between">
+              <label for="intensity-profile" class="intensity-bar white-text">Smooth</label>
+              <label for="intensity-profile" class="intensity-bar white-text">Intense</label>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -81,7 +93,9 @@
             <div>
               <label for="tasting-notes" class="white-text">Tasting Notes</label>
             </div>
-            <textarea name="taste" id="taste-profile" class="tasting-box" placeholder="Ex: Orange, Peach, Chocolate"></textarea>
+            <div class="row justify-center">
+              <textarea name="taste" id="taste-profile" class="tasting-box" placeholder="Ex: Orange, Peach, Chocolate"></textarea>
+            </div>
           </div>
         </div>
         <div class="row">
