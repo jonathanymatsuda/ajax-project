@@ -1,4 +1,5 @@
 var $journalForm = document.querySelector('#journal-form');
+var $ul = document.querySelector('#entries-list');
 
 function submission(event) {
   event.preventDefault();
@@ -15,6 +16,68 @@ function submission(event) {
   };
   data.logs.unshift(inputValues);
   $journalForm.reset();
+}
+
+function renderLogs(logs) {
+  var $li = document.createElement('li');
+
+  var $row = document.createElement('div');
+  $row.setAttribute('class', 'row text-align-center');
+  $li.appendChild($row);
+
+  var $columnFull = document.createElement('div');
+  $columnFull.setAttribute('class', 'column-full');
+  $row.appendChild($columnFull);
+
+  var $nameAndAge = document.createElement('h3');
+  var $nameAndAgeText = document.createTextNode(logs.name + ' ' + logs.age);
+  $nameAndAge.setAttribute('class', 'white-text text-shadow');
+  $columnFull.appendChild($nameAndAge);
+  $nameAndAge.appendChild($nameAndAgeText);
+
+  var $rowTwo = document.createElement('div');
+  $rowTwo.setAttribute('class', 'row text-align-center');
+  $li.appendChild($rowTwo);
+
+  var $columnHalf = document.createElement('div');
+  $columnHalf.setAttribute('class', 'column-half');
+  $rowTwo.appendChild($columnHalf);
+
+  var $distilleryFrom = document.createElement('p');
+  var $distilleryFromText = document.createTextNode('From: ');
+  $distilleryFrom.setAttribute('class', 'red-text');
+  $columnHalf.appendChild($distilleryFrom);
+  $distilleryFrom.appendChild($distilleryFromText);
+
+  var $distillery = document.createElement('span');
+  var $distilleryName = document.createTextNode(logs.distillery);
+  $distillery.setAttribute('class', 'white-text');
+  $distilleryFrom.appendChild($distillery);
+  $distillery.appendChild($distilleryName);
+
+  var $columnHalfTwo = document.createElement('div');
+  $columnHalfTwo.setAttribute('class', 'column-half');
+  $rowTwo.appendChild($columnHalfTwo);
+
+  var $dateOn = document.createElement('p');
+  var $dateOnText = document.createTextNode('On: ');
+  $dateOn.setAttribute('class', 'red-text');
+  $columnHalfTwo.appendChild($dateOn);
+  $dateOn.appendChild($dateOnText);
+
+  var $date = document.createElement('span');
+  var $dateTried = document.createTextNode(logs.date);
+  $date.setAttribute('class', 'white-text');
+  $dateOn.appendChild($date);
+  $date.appendChild($dateTried);
+
+  return $li;
+}
+
+function logTreeCreation(event) {
+  for (var entry = 0; entry < data.logs.length; entry++) {
+    $ul.appendChild(renderLogs(data.logs[entry]));
+  }
 }
 
 /* <li> - DOM Tree HTML
@@ -67,3 +130,4 @@ function submission(event) {
 </li> */
 
 $journalForm.addEventListener('submit', submission);
+window.addEventListener('DOMContentLoaded', logTreeCreation);
