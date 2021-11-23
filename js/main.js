@@ -98,7 +98,7 @@ function renderLogs(logs) {
   $smokyBar.setAttribute('name', 'smokiness');
   $smokyBar.setAttribute('id', 'smoky-profile');
   $smokyBar.setAttribute('value', logs.smokiness);
-  $smokyBar.setAttribute('readonly', 'readonly');
+  $smokyBar.setAttribute('disabled', 'true');
   $columnFullThree.appendChild($smokyBar);
 
   var $rowForLabels = document.createElement('div');
@@ -132,7 +132,7 @@ function renderLogs(logs) {
   $intensityBar.setAttribute('name', 'intensity');
   $intensityBar.setAttribute('id', 'intensity-profile');
   $intensityBar.setAttribute('value', logs.intensity);
-  $intensityBar.setAttribute('readonly', 'readonly');
+  $intensityBar.setAttribute('disabled', 'true');
   $columnFullFour.appendChild($intensityBar);
 
   var $rowForLabelsTwo = document.createElement('div');
