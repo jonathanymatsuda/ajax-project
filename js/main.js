@@ -71,6 +71,128 @@ function renderLogs(logs) {
   $dateOn.appendChild($date);
   $date.appendChild($dateTried);
 
+  var $rowThree = document.createElement('div');
+  $rowThree.setAttribute('class', 'row text-align-center');
+  $li.appendChild($rowThree);
+
+  var $columnFullTwo = document.createElement('div');
+  $columnFullTwo.setAttribute('class', 'column-full');
+  $rowThree.appendChild($columnFullTwo);
+
+  var $flavorProfile = document.createElement('p');
+  var $flavorProfileText = document.createTextNode('Flavor Profile');
+  $flavorProfile.setAttribute('class', 'red-text');
+  $columnFullTwo.appendChild($flavorProfile);
+  $flavorProfile.appendChild($flavorProfileText);
+
+  var $rowFour = document.createElement('div');
+  $rowFour.setAttribute('class', 'row');
+  $li.appendChild($rowFour);
+
+  var $columnFullThree = document.createElement('div');
+  $columnFullThree.setAttribute('class', 'column-full');
+  $rowFour.appendChild($columnFullThree);
+
+  var $smokyBar = document.createElement('input');
+  $smokyBar.setAttribute('type', 'range');
+  $smokyBar.setAttribute('name', 'smokiness');
+  $smokyBar.setAttribute('id', 'smoky-profile');
+  $smokyBar.setAttribute('value', logs.smokiness);
+  $smokyBar.setAttribute('readonly', 'readonly');
+  $columnFullThree.appendChild($smokyBar);
+
+  var $rowForLabels = document.createElement('div');
+  $rowForLabels.setAttribute('class', 'row justify-between');
+  $columnFullThree.appendChild($rowForLabels);
+
+  var $sweetLabel = document.createElement('label');
+  var $sweetText = document.createTextNode('Sweet');
+  $sweetLabel.setAttribute('for', 'smoky-profile');
+  $sweetLabel.setAttribute('class', 'smokiness-bar white-text');
+  $rowForLabels.appendChild($sweetLabel);
+  $sweetLabel.appendChild($sweetText);
+
+  var $peatyLabel = document.createElement('label');
+  var $peatyText = document.createTextNode('Peaty');
+  $peatyLabel.setAttribute('for', 'smoky-profile');
+  $peatyLabel.setAttribute('class', 'smokiness-bar white-text');
+  $rowForLabels.appendChild($peatyLabel);
+  $peatyLabel.appendChild($peatyText);
+
+  var $rowFive = document.createElement('div');
+  $rowFive.setAttribute('class', 'row');
+  $li.appendChild($rowFive);
+
+  var $columnFullFour = document.createElement('div');
+  $columnFullFour.setAttribute('class', 'column-full');
+  $rowFive.appendChild($columnFullFour);
+
+  var $intensityBar = document.createElement('input');
+  $intensityBar.setAttribute('type', 'range');
+  $intensityBar.setAttribute('name', 'intensity');
+  $intensityBar.setAttribute('id', 'intensity-profile');
+  $intensityBar.setAttribute('value', logs.intensity);
+  $intensityBar.setAttribute('readonly', 'readonly');
+  $columnFullFour.appendChild($intensityBar);
+
+  var $rowForLabelsTwo = document.createElement('div');
+  $rowForLabelsTwo.setAttribute('class', 'row justify-between');
+  $columnFullFour.appendChild($rowForLabelsTwo);
+
+  var $smoothLabel = document.createElement('label');
+  var $smoothText = document.createTextNode('Smooth');
+  $smoothLabel.setAttribute('for', 'intensity-profile');
+  $smoothLabel.setAttribute('class', 'intensity-bar white-text');
+  $rowForLabelsTwo.appendChild($smoothLabel);
+  $smoothLabel.appendChild($smoothText);
+
+  var $intenseLabel = document.createElement('label');
+  var $intenseText = document.createTextNode('Intense');
+  $intenseLabel.setAttribute('for', 'intensity-profile');
+  $intenseLabel.setAttribute('class', 'intensity-bar white-text');
+  $rowForLabelsTwo.appendChild($intenseLabel);
+  $intenseLabel.appendChild($intenseText);
+
+  var $rowSix = document.createElement('div');
+  $rowSix.setAttribute('class', 'row text-align-center');
+  $li.appendChild($rowSix);
+
+  var $columnFullFive = document.createElement('div');
+  $columnFullFive.setAttribute('class', 'column-full');
+  $rowSix.appendChild($columnFullFive);
+
+  var $tastingNotesOf = document.createElement('p');
+  var $tastingNotesofText = document.createTextNode('With tasting notes of: ');
+  $tastingNotesOf.setAttribute('class', 'red-text');
+  $columnFullFive.appendChild($tastingNotesOf);
+  $tastingNotesOf.appendChild($tastingNotesofText);
+
+  var $taste = document.createElement('span');
+  var $tastingNotes = document.createTextNode(logs.notes);
+  $taste.setAttribute('class', 'white-text');
+  $tastingNotesOf.appendChild($taste);
+  $taste.appendChild($tastingNotes);
+
+  var $rowSeven = document.createElement('div');
+  $rowSeven.setAttribute('class', 'row text-align-center');
+  $li.appendChild($rowSeven);
+
+  var $columnFullSix = document.createElement('div');
+  $columnFullSix.setAttribute('class', 'column-full');
+  $rowSeven.appendChild($columnFullSix);
+
+  var $final = document.createElement('p');
+  var $finalText = document.createTextNode('Final Score: ');
+  $final.setAttribute('class', 'red-text');
+  $columnFullSix.appendChild($final);
+  $final.appendChild($finalText);
+
+  var $score = document.createElement('span');
+  var $finalScore = document.createTextNode(logs.score);
+  $score.setAttribute('class', 'white-text');
+  $final.appendChild($score);
+  $score.appendChild($finalScore);
+
   return $li;
 }
 
