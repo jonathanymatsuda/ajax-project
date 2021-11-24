@@ -97,6 +97,7 @@ function renderLogs(logs) {
   $smokyBar.setAttribute('type', 'range');
   $smokyBar.setAttribute('name', 'smokiness');
   $smokyBar.setAttribute('id', 'smoky-profile');
+  $smokyBar.setAttribute('class', 'slider test');
   $smokyBar.setAttribute('value', logs.smokiness);
   $smokyBar.setAttribute('disabled', 'true');
   $columnFullThree.appendChild($smokyBar);
