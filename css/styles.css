@@ -121,11 +121,6 @@ label {
   margin-bottom: 10px;
 }
 
-input:disabled {
-  width: 50%;
-  background-color: chartreuse;
-}
-
 li {
   padding: 10px;
   margin-bottom: 50px;
@@ -134,4 +129,13 @@ li {
   border-radius: 5px;
   background-color: rgba(54, 8, 8, 0.5);
   line-height: 1.5px;
+}
+
+.nav-item {
+  position: absolute;
+  top: 30px;
+  right: 120px;
+  padding-right: 10px;
+  color: #d0b8b8;
+  text-decoration: none;
 }
