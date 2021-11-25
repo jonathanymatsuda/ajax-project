@@ -1,5 +1,7 @@
 var $journalForm = document.querySelector('#journal-form');
 var $ul = document.querySelector('#entries-list');
+var $applicationView = document.querySelector('.application-view');
+var $logsNavItem = document.querySelector('.logs-nav-item');
 
 function submission(event) {
   event.preventDefault();
@@ -16,6 +18,7 @@ function submission(event) {
   };
   data.logs.unshift(inputValues);
   $journalForm.reset();
+  switchViews('entries');
 }
 
 function renderLogs(logs) {
@@ -252,5 +255,25 @@ function logTreeCreation(event) {
   </div>
 </li> */
 
+function switchViews(viewName) {
+  for (var view = 0; view < $applicationView.length; view++) {
+    if ($applicationView[view].getAttribute('data-view') === viewName) {
+      $applicationView.className = 'application-view';
+    } else {
+      $applicationView.className = 'hidden application-view';
+    }
+  }
+  data.view = viewName;
+}
+
+function loadLogs(event) {
+  switchViews('entries');
+}
+
+function loadEntryForm(event) {
+  switchViews('entry-form');
+}
+
 $journalForm.addEventListener('submit', submission);
 window.addEventListener('DOMContentLoaded', logTreeCreation);
+$logsNavItem.addEventListener('click', loadLogs);
