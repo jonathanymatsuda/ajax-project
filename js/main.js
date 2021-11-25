@@ -1,7 +1,9 @@
 var $journalForm = document.querySelector('#journal-form');
+var $applicationView = document.querySelectorAll('.application-view');
 var $ul = document.querySelector('#entries-list');
-var $applicationView = document.querySelector('.application-view');
+var $headerText = document.querySelector('.header-text');
 var $logsNavItem = document.querySelector('.logs-nav-item');
+var $noEntries = document.querySelector('.no-entries');
 
 function submission(event) {
   event.preventDefault();
@@ -16,9 +18,12 @@ function submission(event) {
     score: $journalForm.elements.score.value,
     entryID: data.nextEntryId++
   };
+  var renderedLogs = renderLogs(inputValues);
   data.logs.unshift(inputValues);
+  $ul.prepend(renderedLogs);
   $journalForm.reset();
   switchViews('entries');
+  toggleNoLogsText();
 }
 
 function renderLogs(logs) {
@@ -100,7 +105,7 @@ function renderLogs(logs) {
   $smokyBar.setAttribute('type', 'range');
   $smokyBar.setAttribute('name', 'smokiness');
   $smokyBar.setAttribute('id', 'smoky-profile');
-  $smokyBar.setAttribute('class', 'slider test');
+  $smokyBar.setAttribute('class', 'slider-logged');
   $smokyBar.setAttribute('value', logs.smokiness);
   $smokyBar.setAttribute('disabled', 'true');
   $columnFullThree.appendChild($smokyBar);
@@ -204,6 +209,8 @@ function logTreeCreation(event) {
   for (var entry = 0; entry < data.logs.length; entry++) {
     $ul.appendChild(renderLogs(data.logs[entry]));
   }
+  toggleNoLogsText();
+  switchViews(data.view);
 }
 
 /* <li> - DOM Tree HTML
@@ -258,9 +265,9 @@ function logTreeCreation(event) {
 function switchViews(viewName) {
   for (var view = 0; view < $applicationView.length; view++) {
     if ($applicationView[view].getAttribute('data-view') === viewName) {
-      $applicationView.className = 'application-view';
+      $applicationView[view].className = 'application-view';
     } else {
-      $applicationView.className = 'hidden application-view';
+      $applicationView[view].className = 'hidden application-view';
     }
   }
   data.view = viewName;
@@ -272,8 +279,18 @@ function loadLogs(event) {
 
 function loadEntryForm(event) {
   switchViews('entry-form');
+  $journalForm.reset();
 }
+
+const toggleNoLogsText = () => {
+  if (data.logs.length > 0) {
+    $noEntries.className = 'row text-align-center no-entries hidden';
+  } else {
+    $noEntries.className = 'row text-align-center no-entries';
+  }
+};
 
 $journalForm.addEventListener('submit', submission);
 window.addEventListener('DOMContentLoaded', logTreeCreation);
 $logsNavItem.addEventListener('click', loadLogs);
+$headerText.addEventListener('click', loadEntryForm);

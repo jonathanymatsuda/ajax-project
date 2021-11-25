@@ -18,10 +18,11 @@ body {
 
 .header-text {
   position: absolute;
-  top: 0;
+  top: 15px;
   left: 0;
   padding-left: 10px;
   color: #d0b8b8;
+  text-decoration: none;
 }
 
 .white-text {
@@ -133,7 +134,7 @@ li {
 
 .logs-nav-item {
   position: absolute;
-  top: 30px;
+  top: 18px;
   right: 120px;
   padding-right: 10px;
   color: #d0b8b8;

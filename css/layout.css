@@ -8,7 +8,7 @@
 }
 
 form {
-  width: 25rem;
+  width: 20rem;
   margin: auto;
 }
 
@@ -18,8 +18,9 @@ ul {
 }
 
 li {
-  width: 70%;
-  margin: auto;
+  width: 80%;
+  margin-right: auto;
+  margin-left: 1rem;
 }
 
 .row {
@@ -63,5 +64,20 @@ li {
 @media screen and (min-width: 768px) {
   .container {
     max-width: 1000px;
+  }
+
+  form {
+    width: 25rem;
+    margin: auto;
+  }
+
+  ul {
+    width: 100%;
+    margin: auto;
+  }
+
+  li {
+    width: 80%;
+    margin: auto;
   }
 }
