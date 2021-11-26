@@ -234,7 +234,7 @@ function logTreeCreation(event) {
   </div>
   <div class="row">
     <div class="column-full">
-      <input type="range" name="smokiness" id="smoky-profile" min="0" max="100" step="1">
+      <input type="range" name="smokiness" id="smoky-profile" disabled="true">
       <div class ="row justify-between">
       <label for="smoky-profile" class ="smokiness-bar white-text">Sweet</label>
       <label for="smoky-profile" class ="smokiness-bar white-text">Peaty</label>
@@ -243,7 +243,7 @@ function logTreeCreation(event) {
   </div>
   <div class="row">
     <div class="column-full">
-      <input type="range" name="intensity" id="intensity-profile" min="0" max="100" step="1">
+      <input type="range" name="intensity" id="intensity-profile" disabled="true">
       <div class ="row justify-between">
       <label for="intensity-profile" class ="intensity-bar white-text">Smooth</label>
       <label for="intensity-profile" class ="intensity-bar white-text">Intense</label>
