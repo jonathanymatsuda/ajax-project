@@ -298,15 +298,14 @@ const toggleNoLogsText = () => {
   }
 };
 
-// function editEntry(event) {
-//   if (event.target === '.edit-button') {
-//     switchViews('entry-form');
-//     for (let entry = 0; entry < data.entries.length; entry++) {
-//       if (parseInt(event.target.closest('li').getAttribute('data-entry-id')) === data.logs[entry].entryID) {
-// }
+function editEntry(event) {
+  if (event.target.tagName === 'BUTTON') {
+    switchViews('entry-form');
+  }
+}
 
 $journalForm.addEventListener('submit', submission);
 window.addEventListener('DOMContentLoaded', logTreeCreation);
 $logsNavItem.addEventListener('click', loadLogs);
 $headerText.addEventListener('click', loadEntryForm);
-// $ul.addEventListener('click', editEntry);
+$ul.addEventListener('click', editEntry);
