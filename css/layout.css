@@ -8,8 +8,19 @@
 }
 
 form {
-  width: 25rem;
+  width: 20rem;
   margin: auto;
+}
+
+ul {
+  width: 100%;
+  margin: auto;
+}
+
+li {
+  width: 80%;
+  margin-right: auto;
+  margin-left: 1rem;
 }
 
 .row {
@@ -30,6 +41,14 @@ form {
   text-align: left;
 }
 
+.align-items-center {
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -44,6 +63,21 @@ form {
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 900px;
+    max-width: 1000px;
+  }
+
+  form {
+    width: 25rem;
+    margin: auto;
+  }
+
+  ul {
+    width: 100%;
+    margin: auto;
+  }
+
+  li {
+    width: 80%;
+    margin: auto;
   }
 }
