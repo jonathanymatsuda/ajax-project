@@ -122,6 +122,18 @@ label {
   margin-bottom: 10px;
 }
 
+input,
+textarea {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=text]:focus,
+textarea:focus {
+  border: 2px solid #1d75dd;
+}
+
 li {
   padding: 10px;
   margin-bottom: 50px;
