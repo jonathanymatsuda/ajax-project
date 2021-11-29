@@ -43,6 +43,12 @@ function renderLogs(logs) {
   $columnFull.appendChild($nameAndAge);
   $nameAndAge.appendChild($nameAndAgeText);
 
+  var $editButton = document.createElement('button');
+  var $editText = document.createTextNode('Edit');
+  $editButton.setAttribute('class', 'edit-button');
+  $nameAndAge.appendChild($editButton);
+  $editButton.appendChild($editText);
+
   var $rowTwo = document.createElement('div');
   $rowTwo.setAttribute('class', 'row text-align-center');
   $li.appendChild($rowTwo);
