@@ -28,6 +28,7 @@ function submission(event) {
 
 function renderLogs(logs) {
   var $li = document.createElement('li');
+  $li.setAttribute('data-entry-id', logs.entryID);
 
   var $row = document.createElement('div');
   $row.setAttribute('class', 'row text-align-center');
