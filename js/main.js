@@ -301,6 +301,20 @@ const toggleNoLogsText = () => {
 function editEntry(event) {
   if (event.target.tagName === 'BUTTON') {
     switchViews('entry-form');
+    for (var entry = 0; entry < data.logs.length; entry++) {
+      if (parseInt(event.target.closest('li').getAttribute('data-entry-id')) === data.logs[entry].entryID) {
+        data.editing = data.logs[entry];
+        $journalForm.elements.whiskey.value = data.logs[entry].name;
+        $journalForm.elements.distillery.value = data.logs[entry].distillery;
+        $journalForm.elements.date.value = data.logs[entry].date;
+        $journalForm.elements.age.value = data.logs[entry].age;
+        $journalForm.elements.smokiness.value = data.logs[entry].smokiness;
+        $journalForm.elements.intensity.value = data.logs[entry].intensity;
+        $journalForm.elements.taste.value = data.logs[entry].notes;
+        $journalForm.elements.score.value = data.logs[entry].score;
+      }
+    }
+    switchViews(data.view);
   }
 }
 
