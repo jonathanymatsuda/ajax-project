@@ -224,6 +224,7 @@ function logTreeCreation(event) {
   <div class="row text-align-center">
     <div class="column-full">
       <h3 class="white-text text-shadow">logs.title - logs.age</h3>
+      <button class="edit-button">Edit</button>
     </div>
   </div>
   <div class="row text-align-center">
@@ -297,7 +298,15 @@ const toggleNoLogsText = () => {
   }
 };
 
+// function editEntry(event) {
+//   if (event.target === '.edit-button') {
+//     switchViews('entry-form');
+//     for (let entry = 0; entry < data.entries.length; entry++) {
+//       if (parseInt(event.target.closest('li').getAttribute('data-entry-id')) === data.logs[entry].entryID) {
+// }
+
 $journalForm.addEventListener('submit', submission);
 window.addEventListener('DOMContentLoaded', logTreeCreation);
 $logsNavItem.addEventListener('click', loadLogs);
 $headerText.addEventListener('click', loadEntryForm);
+// $ul.addEventListener('click', editEntry);
