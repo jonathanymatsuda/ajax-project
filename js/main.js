@@ -4,23 +4,57 @@ var $ul = document.querySelector('#entries-list');
 var $headerText = document.querySelector('.header-text');
 var $logsNavItem = document.querySelector('.logs-nav-item');
 var $noEntries = document.querySelector('.no-entries');
+var $name = document.querySelector('#whiskey-name');
+var $distillery = document.querySelector('#distillery-name');
+var $date = document.querySelector('#date-tried');
+var $age = document.querySelector('#age-whiskey');
+var $smokyBar = document.querySelector('#smoky-profile');
+var $intensityBar = document.querySelector('#intensity-profile');
+var $tastingNotes = document.querySelector('#taste-profile');
+var $finalScore = document.querySelector('#final-score');
 
 function submission(event) {
   event.preventDefault();
-  var inputValues = {
-    name: $journalForm.elements.whiskey.value,
-    distillery: $journalForm.elements.distillery.value,
-    date: $journalForm.elements.date.value,
-    age: $journalForm.elements.age.value,
-    smokiness: $journalForm.elements.smokiness.value,
-    intensity: $journalForm.elements.intensity.value,
-    notes: $journalForm.elements.taste.value,
-    score: $journalForm.elements.score.value,
-    entryID: data.nextEntryId++
-  };
-  var renderedLogs = renderLogs(inputValues);
-  data.logs.unshift(inputValues);
-  $ul.prepend(renderedLogs);
+  if (data.editing === null) {
+    var inputValues = {
+      name: $journalForm.elements.whiskey.value,
+      distillery: $journalForm.elements.distillery.value,
+      date: $journalForm.elements.date.value,
+      age: $journalForm.elements.age.value,
+      smokiness: $journalForm.elements.smokiness.value,
+      intensity: $journalForm.elements.intensity.value,
+      notes: $journalForm.elements.taste.value,
+      score: $journalForm.elements.score.value,
+      entryID: data.nextEntryId++
+    };
+    var renderedLogs = renderLogs(inputValues);
+    data.logs.unshift(inputValues);
+    $ul.prepend(renderedLogs);
+  } else {
+    var updatedValues = {
+      name: $name.value,
+      distillery: $distillery.value,
+      date: $date.value,
+      age: $age.value,
+      smokiness: $smokyBar.value,
+      intensity: $intensityBar.value,
+      notes: $tastingNotes.value,
+      score: $finalScore.value,
+      entryID: data.editing.entryID
+    };
+    var $li = document.querySelectorAll('li');
+    for (var entry = 0; entry < data.logs.length; entry++) {
+      if (data.editing.entryID === data.logs[entry].entryID) {
+        data.logs[entry] = updatedValues;
+      }
+    }
+    for (var liIndex = 0; liIndex < $li.length; liIndex++) {
+      if (data.editing.entryID === parseInt($li[liIndex].getAttribute('data-entry-id'))) {
+        var updatedLogs = renderLogs(updatedValues);
+        $li[liIndex].replaceWith(updatedLogs);
+      }
+    }
+  }
   $journalForm.reset();
   switchViews('entries');
   toggleNoLogsText();
