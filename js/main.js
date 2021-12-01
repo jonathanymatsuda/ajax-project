@@ -4,23 +4,57 @@ var $ul = document.querySelector('#entries-list');
 var $headerText = document.querySelector('.header-text');
 var $logsNavItem = document.querySelector('.logs-nav-item');
 var $noEntries = document.querySelector('.no-entries');
+var $name = document.querySelector('#whiskey-name');
+var $distillery = document.querySelector('#distillery-name');
+var $date = document.querySelector('#date-tried');
+var $age = document.querySelector('#age-whiskey');
+var $smokyBar = document.querySelector('#smoky-profile');
+var $intensityBar = document.querySelector('#intensity-profile');
+var $tastingNotes = document.querySelector('#taste-profile');
+var $finalScore = document.querySelector('#final-score');
 
 function submission(event) {
   event.preventDefault();
-  var inputValues = {
-    name: $journalForm.elements.whiskey.value,
-    distillery: $journalForm.elements.distillery.value,
-    date: $journalForm.elements.date.value,
-    age: $journalForm.elements.age.value,
-    smokiness: $journalForm.elements.smokiness.value,
-    intensity: $journalForm.elements.intensity.value,
-    notes: $journalForm.elements.taste.value,
-    score: $journalForm.elements.score.value,
-    entryID: data.nextEntryId++
-  };
-  var renderedLogs = renderLogs(inputValues);
-  data.logs.unshift(inputValues);
-  $ul.prepend(renderedLogs);
+  if (data.editing === null) {
+    var inputValues = {
+      name: $journalForm.elements.whiskey.value,
+      distillery: $journalForm.elements.distillery.value,
+      date: $journalForm.elements.date.value,
+      age: $journalForm.elements.age.value,
+      smokiness: $journalForm.elements.smokiness.value,
+      intensity: $journalForm.elements.intensity.value,
+      notes: $journalForm.elements.taste.value,
+      score: $journalForm.elements.score.value,
+      entryID: data.nextEntryId++
+    };
+    var renderedLogs = renderLogs(inputValues);
+    data.logs.unshift(inputValues);
+    $ul.prepend(renderedLogs);
+  } else {
+    var updatedValues = {
+      name: $name.value,
+      distillery: $distillery.value,
+      date: $date.value,
+      age: $age.value,
+      smokiness: $smokyBar.value,
+      intensity: $intensityBar.value,
+      notes: $tastingNotes.value,
+      score: $finalScore.value,
+      entryID: data.editing.entryID
+    };
+    var $li = document.querySelectorAll('li');
+    for (var entry = 0; entry < data.logs.length; entry++) {
+      if (data.editing.entryID === data.logs[entry].entryID) {
+        data.logs[entry] = updatedValues;
+      }
+    }
+    for (var liIndex = 0; liIndex < $li.length; liIndex++) {
+      if (data.editing.entryID === parseInt($li[liIndex].getAttribute('data-entry-id'))) {
+        var updatedLogs = renderLogs(updatedValues);
+        $li[liIndex].replaceWith(updatedLogs);
+      }
+    }
+  }
   $journalForm.reset();
   switchViews('entries');
   toggleNoLogsText();
@@ -28,6 +62,7 @@ function submission(event) {
 
 function renderLogs(logs) {
   var $li = document.createElement('li');
+  $li.setAttribute('data-entry-id', logs.entryID);
 
   var $row = document.createElement('div');
   $row.setAttribute('class', 'row text-align-center');
@@ -42,6 +77,12 @@ function renderLogs(logs) {
   $nameAndAge.setAttribute('class', 'white-text text-shadow');
   $columnFull.appendChild($nameAndAge);
   $nameAndAge.appendChild($nameAndAgeText);
+
+  var $editButton = document.createElement('button');
+  var $editText = document.createTextNode('Edit');
+  $editButton.setAttribute('class', 'edit-button');
+  $nameAndAge.appendChild($editButton);
+  $editButton.appendChild($editText);
 
   var $rowTwo = document.createElement('div');
   $rowTwo.setAttribute('class', 'row text-align-center');
@@ -217,6 +258,7 @@ function logTreeCreation(event) {
   <div class="row text-align-center">
     <div class="column-full">
       <h3 class="white-text text-shadow">logs.title - logs.age</h3>
+      <button class="edit-button">Edit</button>
     </div>
   </div>
   <div class="row text-align-center">
@@ -290,7 +332,28 @@ const toggleNoLogsText = () => {
   }
 };
 
+function editEntry(event) {
+  if (event.target.tagName === 'BUTTON') {
+    switchViews('entry-form');
+    for (var entry = 0; entry < data.logs.length; entry++) {
+      if (parseInt(event.target.closest('li').getAttribute('data-entry-id')) === data.logs[entry].entryID) {
+        data.editing = data.logs[entry];
+        $journalForm.elements.whiskey.value = data.logs[entry].name;
+        $journalForm.elements.distillery.value = data.logs[entry].distillery;
+        $journalForm.elements.date.value = data.logs[entry].date;
+        $journalForm.elements.age.value = data.logs[entry].age;
+        $journalForm.elements.smokiness.value = data.logs[entry].smokiness;
+        $journalForm.elements.intensity.value = data.logs[entry].intensity;
+        $journalForm.elements.taste.value = data.logs[entry].notes;
+        $journalForm.elements.score.value = data.logs[entry].score;
+      }
+    }
+    switchViews(data.view);
+  }
+}
+
 $journalForm.addEventListener('submit', submission);
 window.addEventListener('DOMContentLoaded', logTreeCreation);
 $logsNavItem.addEventListener('click', loadLogs);
 $headerText.addEventListener('click', loadEntryForm);
+$ul.addEventListener('click', editEntry);
