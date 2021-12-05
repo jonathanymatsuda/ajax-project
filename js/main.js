@@ -353,69 +353,107 @@ function editEntry(event) {
   }
 }
 
-/* <div class="row"> - Distillery DOM Tree
-  <div class="column-half">
-    <li class="distillery-panel">
-      <div class="row text-align-center">
-        <div class="column-full">
-          <h3 class="white-text text-shadow">Yamazaki</h3>
-        </div>
-      </div>
-      <div class="row text-align-left">
-        <div class="column-half">
-          <p class="white-text">Country: Japan</p>
-        </div>
-        <div class="column-half">
-          <p class="white-text">Average Sale Price: $800</p>
-        </div>
-      </div>
-      <div class="row text-align-left">
-        <div class="column-half">
-          <p class="white-text">Whiskey Base Rating: 88%</p>
-        </div>
-        <div class="column-half">
-          <p class="white-text">Votes: 1000</p>
-        </div>
-      </div>
-    </li>
-  </div>
-  <div class="column-half">
-    <li class="distillery-panel">
-      <div class="row text-align-center">
-        <div class="column-full">
-          <h3 class="white-text text-shadow">Yamazaki</h3>
-        </div>
-      </div>
-      <div class="row text-align-left">
-        <div class="column-half">
-          <p class="white-text">Country: Japan</p>
-        </div>
-        <div class="column-half">
-          <p class="white-text">Average Sale Price: $800</p>
-        </div>
-      </div>
-      <div class="row text-align-left">
-        <div class="column-half">
-          <p class="white-text">Whiskey Base Rating: 88%</p>
-        </div>
-        <div class="column-half">
-          <p class="white-text">Votes: 1000</p>
-        </div>
-      </div>
-    </li>
-  </div>
-</div> */
-// const renderDistilleries
-// const getDistillerydata = () => {
+// const getDistilleryData = () => {
 //   const xhr = new XMLHttpRequest();
 //   xhr.open('GET', 'https://whiskyhunter.net/api/distilleries_info/');
 //   xhr.responseType = 'json';
 //   xhr.addEventListener('load', () => {
-//     for (let distillery = 0; distillery < xhr.response.length; distillerty++) {
+//     for (let distillery = 0; distillery < xhr.response.length; distillery++) {
+//       const $liColumnHalf = document.createElement('div');
+//       $liColumnHalf.setAttribute('class', 'column-half');
 
+//       const $li = document.createElement('li');
+//       $li.setAttribute('class', 'distillery-panel');
+//       $liColumnHalf.appendChild($li);
+
+//       const $row = document.createElement('div');
+//       $row.setAttribute('class', 'row text-align-center');
+//       $li.appendChild($row);
+
+//       const $columnFull = document.createElement('div');
+//       $columnFull.setAttribute('class', 'column-full');
+//       $row.appendChild($columnFull);
+
+//       const $h3 = document.createElement('h3');
+//       $h3.setAttribute('class', 'white-text text-shadow');
+//       $h3.textContent = xhr.response[distillery].name;
+//       $columnFull.appendChild($h3);
+
+//       const $rowTwo = document.createElement('div');
+//       $rowTwo.setAttribute('class', 'row text-align-left');
+//       $li.appendChild($rowTwo);
+
+//       const $columnHalf = document.createElement('div');
+//       $columnHalf.setAttribute('class', 'column-half');
+//       $rowTwo.appendChild($columnHalf);
+
+//       const $pCountry = document.createElement('p');
+//       $pCountry.setAttribute('class', 'white-text');
+//       $pCountry.textContent = 'Country: ' + xhr.response[distillery].country;
+//       $columnHalf.appendChild($pCountry);
+
+//       const $columnHalfTwo = document.createElement('div');
+//       $columnHalfTwo.setAttribute('class', 'column-half');
+//       $rowTwo.appendChild($columnHalfTwo);
+
+//       const $pWhiskybaseWhiskies = document.createElement('p');
+//       $pWhiskybaseWhiskies.setAttribute('class', 'white-text');
+//       $pWhiskybaseWhiskies.textContent = 'Types of Whiskey: ' + xhr.response[distillery].whiskybase_whiskies;
+//       $columnHalfTwo.appendChild($pWhiskybaseWhiskies);
+
+//       const $rowThree = document.createElement('div');
+//       $rowThree.setAttribute('class', 'row text-align-left');
+//       $li.appendChild($rowThree);
+
+//       const $columnHalfThree = document.createElement('div');
+//       $columnHalfThree.setAttribute('class', 'column-half');
+//       $rowThree.appendChild($columnHalfThree);
+
+//       const $pWhiskybaseRating = document.createElement('p');
+//       $pWhiskybaseRating.setAttribute('class', 'white-text');
+//       $pWhiskybaseRating.textContent = 'Whiskey Rating: ' + xhr.response[distillery].whiskybase_rating;
+//       $columnHalfThree.appendChild($pWhiskybaseRating);
+
+//       const $columnHalfFour = document.createElement('div');
+//       $columnHalfFour.setAttribute('class', 'columm-half');
+//       $rowThree.appendChild($columnHalfFour);
+
+//       const $pWhiskybaseVotes = document.createElement('p');
+//       $pWhiskybaseVotes.setAttribute('class', 'white-text');
+//       $pWhiskybaseVotes.textContent = 'Number of Votes: ' + xhr.response[distillery].whiskybase_votes;
+//       $columnHalfFour.appendChild($pWhiskybaseVotes);
+
+//       $distilleryList.appendChild($liColumnHalf);
 //     }
 //   });
+//   xhr.send();
 // };
+
+//  <div class="column-half"> - Distillery DOM Tree
+//     <li class="distillery-panel">
+//       <div class="row text-align-center">
+//         <div class="column-full">
+//           <h3 class="white-text text-shadow">Yamazaki</h3>
+//         </div>
+//       </div>
+//       <div class="row text-align-left">
+//         <div class="column-half">
+//           <p class="white-text">Country: Japan</p>
+//         </div>
+//         <div class="column-half">
+//           <p class="white-text">Average Sale Price: $800</p>
+//         </div>
+//       </div>
+//       <div class="row text-align-left">
+//         <div class="column-half">
+//           <p class="white-text">Whiskey Base Rating: 88%</p>
+//         </div>
+//         <div class="column-half">
+//           <p class="white-text">Votes: 1000</p>
+//         </div>
+//       </div>
+//     </li>
+//   </div>
 
 $journalForm.addEventListener('submit', submission);
 window.addEventListener('DOMContentLoaded', logTreeCreation);
