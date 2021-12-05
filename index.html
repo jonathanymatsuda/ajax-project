@@ -6,7 +6,9 @@
   <title>AJAX Project</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kurale&family=Rubik:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Karma:wght@300&family=Kurale&family=Rubik:wght@500&display=swap"
+  rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -124,6 +126,73 @@
           </div>
         </div>
         <ul id="entries-list">
+        </ul>
+      </div>
+      <div id="distillery" data-view="distilleries-view" class="application-view">
+        <div class="row text-align-center">
+          <div class="column-full">
+            <h2 class="white-text">Distilleries</h2>
+          </div>
+        </div>
+        <div class="row text-align-center">
+          <div class="column-half">
+           <input tpye="text" id="search" placeholder="Search...">
+           <button type="submit"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+        <ul id="distilleries-list">
+          <div class="row">
+            <div class="column-half">
+              <li class="distillery-panel">
+               <div class="row text-align-center">
+                 <div class="column-full">
+                   <h3 class="white-text text-shadow">Yamazaki</h3>
+                 </div>
+              </div>
+              <div class="row text-align-left">
+                <div class="column-half">
+                  <p class="white-text">Country: Japan</p>
+                </div>
+                <div class="column-half">
+                  <p class="white-text">Average Sale Price: $800</p>
+                </div>
+              </div>
+              <div class="row text-align-left">
+                <div class="column-half">
+                  <p class="white-text">Whiskey Base Rating: 88%</p>
+                </div>
+                <div class="column-half">
+                  <p class="white-text">Votes: 1000</p>
+                </div>
+              </div>
+             </li>
+            </div>
+            <div class="column-half">
+              <li class="distillery-panel">
+                <div class="row text-align-center">
+                  <div class="column-full">
+                    <h3 class="white-text text-shadow">Yamazaki</h3>
+                  </div>
+                </div>
+                <div class="row text-align-left">
+                  <div class="column-half">
+                    <p class="white-text">Country: Japan</p>
+                  </div>
+                  <div class="column-half">
+                    <p class="white-text">Average Sale Price: $800</p>
+                  </div>
+                </div>
+                <div class="row text-align-left">
+                  <div class="column-half">
+                    <p class="white-text">Whiskey Base Rating: 88%</p>
+                  </div>
+                  <div class="column-half">
+                    <p class="white-text">Votes: 1000</p>
+                  </div>
+                </div>
+              </li>
+            </div>
+          </div>
         </ul>
       </div>
     </div>

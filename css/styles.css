@@ -146,6 +146,10 @@ li {
   position: relative;
 }
 
+.distillery-panel {
+  padding: 5px 10px;
+}
+
 .edit-button {
   padding: 10px 0;
   width: 35px;
@@ -166,4 +170,13 @@ li {
   padding-right: 10px;
   color: #d0b8b8;
   text-decoration: none;
+}
+
+#search {
+  margin-bottom: 50px;
+}
+
+p {
+  font-family: 'Karma', serif;
+  font-size: 0.9rem;
 }

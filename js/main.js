@@ -12,6 +12,7 @@ var $smokyBar = document.querySelector('#smoky-profile');
 var $intensityBar = document.querySelector('#intensity-profile');
 var $tastingNotes = document.querySelector('#taste-profile');
 var $finalScore = document.querySelector('#final-score');
+// var $distilleryList = document.querySelector('#distillery-list');
 
 function submission(event) {
   event.preventDefault();
@@ -351,6 +352,70 @@ function editEntry(event) {
     switchViews(data.view);
   }
 }
+
+/* <div class="row"> - Distillery DOM Tree
+  <div class="column-half">
+    <li class="distillery-panel">
+      <div class="row text-align-center">
+        <div class="column-full">
+          <h3 class="white-text text-shadow">Yamazaki</h3>
+        </div>
+      </div>
+      <div class="row text-align-left">
+        <div class="column-half">
+          <p class="white-text">Country: Japan</p>
+        </div>
+        <div class="column-half">
+          <p class="white-text">Average Sale Price: $800</p>
+        </div>
+      </div>
+      <div class="row text-align-left">
+        <div class="column-half">
+          <p class="white-text">Whiskey Base Rating: 88%</p>
+        </div>
+        <div class="column-half">
+          <p class="white-text">Votes: 1000</p>
+        </div>
+      </div>
+    </li>
+  </div>
+  <div class="column-half">
+    <li class="distillery-panel">
+      <div class="row text-align-center">
+        <div class="column-full">
+          <h3 class="white-text text-shadow">Yamazaki</h3>
+        </div>
+      </div>
+      <div class="row text-align-left">
+        <div class="column-half">
+          <p class="white-text">Country: Japan</p>
+        </div>
+        <div class="column-half">
+          <p class="white-text">Average Sale Price: $800</p>
+        </div>
+      </div>
+      <div class="row text-align-left">
+        <div class="column-half">
+          <p class="white-text">Whiskey Base Rating: 88%</p>
+        </div>
+        <div class="column-half">
+          <p class="white-text">Votes: 1000</p>
+        </div>
+      </div>
+    </li>
+  </div>
+</div> */
+// const renderDistilleries
+// const getDistillerydata = () => {
+//   const xhr = new XMLHttpRequest();
+//   xhr.open('GET', 'https://whiskyhunter.net/api/distilleries_info/');
+//   xhr.responseType = 'json';
+//   xhr.addEventListener('load', () => {
+//     for (let distillery = 0; distillery < xhr.response.length; distillerty++) {
+
+//     }
+//   });
+// };
 
 $journalForm.addEventListener('submit', submission);
 window.addEventListener('DOMContentLoaded', logTreeCreation);
