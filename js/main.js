@@ -1,8 +1,11 @@
+var $banner = document.querySelector('.banner-image');
 var $journalForm = document.querySelector('#journal-form');
 var $applicationView = document.querySelectorAll('.application-view');
 var $ul = document.querySelector('#entries-list');
-var $headerText = document.querySelector('.header-text');
-var $logsNavItem = document.querySelector('.logs-nav-item');
+// var $headerText = document.querySelector('.header-text');
+// var $logsNavItem = document.querySelector('.logs-nav-item');
+// var $exploreNavItem = document.querySelector('.explore-nav-item');
+// var $anchor = document.querySelectorAll('a');
 var $noEntries = document.querySelector('.no-entries');
 var $name = document.querySelector('#whiskey-name');
 var $distillery = document.querySelector('#distillery-name');
@@ -316,14 +319,24 @@ function switchViews(viewName) {
   data.view = viewName;
 }
 
-function loadLogs(event) {
-  switchViews('entries');
-}
+// function loadLogs(event) {
+//   switchViews('entries');
+// }
 
-function loadEntryForm(event) {
-  switchViews('entry-form');
-  $journalForm.reset();
-}
+// function loadEntryForm(event) {
+//   switchViews('entry-form');
+//   $journalForm.reset();
+// }
+const navSwapper = event => {
+  if (event.target.matches('.header-text')) {
+    switchViews('entry-form');
+    $journalForm.reset();
+  } else if (event.target.matches('.logs-nav-item')) {
+    switchViews('entries');
+  } else if (event.target.matches('.explore-nav-item')) {
+    switchViews('explore-view');
+  }
+};
 
 const toggleNoLogsText = () => {
   if (data.logs.length > 0) {
@@ -457,6 +470,5 @@ function editEntry(event) {
 
 $journalForm.addEventListener('submit', submission);
 window.addEventListener('DOMContentLoaded', logTreeCreation);
-$logsNavItem.addEventListener('click', loadLogs);
-$headerText.addEventListener('click', loadEntryForm);
+$banner.addEventListener('click', navSwapper);
 $ul.addEventListener('click', editEntry);

@@ -8,7 +8,7 @@ body {
 
 .banner-image {
   width: 100%;
-  height: 250px;
+  height: 220px;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
@@ -163,7 +163,8 @@ li {
   background: none;
 }
 
-.logs-nav-item {
+.logs-nav-item,
+.explore-nav-item {
   position: relative;
   top: 13px;
   right: 30px;
@@ -174,6 +175,33 @@ li {
 
 #search {
   margin-bottom: 50px;
+}
+
+.image-container {
+  position: relative;
+}
+
+.distillery-image {
+  padding: 0 10px;
+  margin-top: 20px;
+  position: relative;
+  width: 450px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.image-overlay {
+  position: absolute;
+
+  /* top: 22rem;
+  left: 0;
+  margin-left: 290px; */
+}
+
+h1 {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1.5px;
 }
 
 p {
