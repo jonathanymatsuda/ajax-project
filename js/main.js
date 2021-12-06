@@ -15,7 +15,8 @@ var $smokyBar = document.querySelector('#smoky-profile');
 var $intensityBar = document.querySelector('#intensity-profile');
 var $tastingNotes = document.querySelector('#taste-profile');
 var $finalScore = document.querySelector('#final-score');
-// var $distilleryList = document.querySelector('#distillery-list');
+var $distilleryList = document.querySelector('#distilleries-list');
+var $distilleryImage = document.querySelector('.distillery-image');
 
 function submission(event) {
   event.preventDefault();
@@ -319,14 +320,6 @@ function switchViews(viewName) {
   data.view = viewName;
 }
 
-// function loadLogs(event) {
-//   switchViews('entries');
-// }
-
-// function loadEntryForm(event) {
-//   switchViews('entry-form');
-//   $journalForm.reset();
-// }
 const navSwapper = event => {
   if (event.target.matches('.header-text')) {
     switchViews('entry-form');
@@ -366,81 +359,87 @@ function editEntry(event) {
   }
 }
 
-// const getDistilleryData = () => {
-//   const xhr = new XMLHttpRequest();
-//   xhr.open('GET', 'https://whiskyhunter.net/api/distilleries_info/');
-//   xhr.responseType = 'json';
-//   xhr.addEventListener('load', () => {
-//     for (let distillery = 0; distillery < xhr.response.length; distillery++) {
-//       const $liColumnHalf = document.createElement('div');
-//       $liColumnHalf.setAttribute('class', 'column-half');
+const getDistilleryData = () => {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://whiskyhunter.net/api/distilleries_info/?format=json');
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', () => {
+    for (let distillery = 0; distillery < xhr.response.length; distillery++) {
+      // console.log(xhr.status);
+      // console.log(xhr.response);
+      const $liRow = document.createElement('div');
+      $liRow.setAttribute('class', 'row');
 
-//       const $li = document.createElement('li');
-//       $li.setAttribute('class', 'distillery-panel');
-//       $liColumnHalf.appendChild($li);
+      const $liColumnHalf = document.createElement('div');
+      $liColumnHalf.setAttribute('class', 'column-half');
+      $liRow.appendChild($liColumnHalf);
 
-//       const $row = document.createElement('div');
-//       $row.setAttribute('class', 'row text-align-center');
-//       $li.appendChild($row);
+      const $li = document.createElement('li');
+      $li.setAttribute('class', 'distillery-panel');
+      $liColumnHalf.appendChild($li);
 
-//       const $columnFull = document.createElement('div');
-//       $columnFull.setAttribute('class', 'column-full');
-//       $row.appendChild($columnFull);
+      const $row = document.createElement('div');
+      $row.setAttribute('class', 'row text-align-center');
+      $li.appendChild($row);
 
-//       const $h3 = document.createElement('h3');
-//       $h3.setAttribute('class', 'white-text text-shadow');
-//       $h3.textContent = xhr.response[distillery].name;
-//       $columnFull.appendChild($h3);
+      const $columnFull = document.createElement('div');
+      $columnFull.setAttribute('class', 'column-full');
+      $row.appendChild($columnFull);
 
-//       const $rowTwo = document.createElement('div');
-//       $rowTwo.setAttribute('class', 'row text-align-left');
-//       $li.appendChild($rowTwo);
+      const $h3 = document.createElement('h3');
+      $h3.setAttribute('class', 'white-text text-shadow');
+      $h3.textContent = xhr.response[distillery].name;
+      $columnFull.appendChild($h3);
 
-//       const $columnHalf = document.createElement('div');
-//       $columnHalf.setAttribute('class', 'column-half');
-//       $rowTwo.appendChild($columnHalf);
+      const $rowTwo = document.createElement('div');
+      $rowTwo.setAttribute('class', 'row text-align-left');
+      $li.appendChild($rowTwo);
 
-//       const $pCountry = document.createElement('p');
-//       $pCountry.setAttribute('class', 'white-text');
-//       $pCountry.textContent = 'Country: ' + xhr.response[distillery].country;
-//       $columnHalf.appendChild($pCountry);
+      const $columnHalf = document.createElement('div');
+      $columnHalf.setAttribute('class', 'column-half');
+      $rowTwo.appendChild($columnHalf);
 
-//       const $columnHalfTwo = document.createElement('div');
-//       $columnHalfTwo.setAttribute('class', 'column-half');
-//       $rowTwo.appendChild($columnHalfTwo);
+      const $pCountry = document.createElement('p');
+      $pCountry.setAttribute('class', 'white-text');
+      $pCountry.textContent = 'Country: ' + xhr.response[distillery].country;
+      $columnHalf.appendChild($pCountry);
 
-//       const $pWhiskybaseWhiskies = document.createElement('p');
-//       $pWhiskybaseWhiskies.setAttribute('class', 'white-text');
-//       $pWhiskybaseWhiskies.textContent = 'Types of Whiskey: ' + xhr.response[distillery].whiskybase_whiskies;
-//       $columnHalfTwo.appendChild($pWhiskybaseWhiskies);
+      const $columnHalfTwo = document.createElement('div');
+      $columnHalfTwo.setAttribute('class', 'column-half');
+      $rowTwo.appendChild($columnHalfTwo);
 
-//       const $rowThree = document.createElement('div');
-//       $rowThree.setAttribute('class', 'row text-align-left');
-//       $li.appendChild($rowThree);
+      const $pWhiskybaseWhiskies = document.createElement('p');
+      $pWhiskybaseWhiskies.setAttribute('class', 'white-text');
+      $pWhiskybaseWhiskies.textContent = 'Types of Whiskey: ' + xhr.response[distillery].whiskybase_whiskies;
+      $columnHalfTwo.appendChild($pWhiskybaseWhiskies);
 
-//       const $columnHalfThree = document.createElement('div');
-//       $columnHalfThree.setAttribute('class', 'column-half');
-//       $rowThree.appendChild($columnHalfThree);
+      const $rowThree = document.createElement('div');
+      $rowThree.setAttribute('class', 'row text-align-left');
+      $li.appendChild($rowThree);
 
-//       const $pWhiskybaseRating = document.createElement('p');
-//       $pWhiskybaseRating.setAttribute('class', 'white-text');
-//       $pWhiskybaseRating.textContent = 'Whiskey Rating: ' + xhr.response[distillery].whiskybase_rating;
-//       $columnHalfThree.appendChild($pWhiskybaseRating);
+      const $columnHalfThree = document.createElement('div');
+      $columnHalfThree.setAttribute('class', 'column-half');
+      $rowThree.appendChild($columnHalfThree);
 
-//       const $columnHalfFour = document.createElement('div');
-//       $columnHalfFour.setAttribute('class', 'columm-half');
-//       $rowThree.appendChild($columnHalfFour);
+      const $pWhiskybaseRating = document.createElement('p');
+      $pWhiskybaseRating.setAttribute('class', 'white-text');
+      $pWhiskybaseRating.textContent = 'Whiskey Rating: ' + xhr.response[distillery].whiskybase_rating;
+      $columnHalfThree.appendChild($pWhiskybaseRating);
 
-//       const $pWhiskybaseVotes = document.createElement('p');
-//       $pWhiskybaseVotes.setAttribute('class', 'white-text');
-//       $pWhiskybaseVotes.textContent = 'Number of Votes: ' + xhr.response[distillery].whiskybase_votes;
-//       $columnHalfFour.appendChild($pWhiskybaseVotes);
+      const $columnHalfFour = document.createElement('div');
+      $columnHalfFour.setAttribute('class', 'columm-half');
+      $rowThree.appendChild($columnHalfFour);
 
-//       $distilleryList.appendChild($liColumnHalf);
-//     }
-//   });
-//   xhr.send();
-// };
+      const $pWhiskybaseVotes = document.createElement('p');
+      $pWhiskybaseVotes.setAttribute('class', 'white-text');
+      $pWhiskybaseVotes.textContent = 'Number of Votes: ' + xhr.response[distillery].whiskybase_votes;
+      $columnHalfFour.appendChild($pWhiskybaseVotes);
+
+      $distilleryList.appendChild($liRow);
+    }
+  });
+  xhr.send();
+};
 
 //  <div class="column-half"> - Distillery DOM Tree
 //     <li class="distillery-panel">
@@ -468,7 +467,13 @@ function editEntry(event) {
 //     </li>
 //   </div>
 
+const distilleryLoad = () => {
+  switchViews('distilleries-view');
+  getDistilleryData();
+};
+
 $journalForm.addEventListener('submit', submission);
 window.addEventListener('DOMContentLoaded', logTreeCreation);
 $banner.addEventListener('click', navSwapper);
 $ul.addEventListener('click', editEntry);
+$distilleryImage.addEventListener('click', distilleryLoad);

@@ -166,15 +166,33 @@ li {
 .logs-nav-item,
 .explore-nav-item {
   position: relative;
-  top: 13px;
-  right: 30px;
+  top: 12px;
+  right: 10px;
   padding-right: 30px;
   color: #d0b8b8;
   text-decoration: none;
 }
 
 #search {
-  margin-bottom: 50px;
+  width: 400px;
+  color: lightgray;
+  background: rgb(79, 79, 79);
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.searchButton {
+  color: white;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2f3640;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
 }
 
 .image-container {
@@ -186,16 +204,16 @@ li {
   margin-top: 20px;
   position: relative;
   width: 450px;
-  border-radius: 50px;
+  height: 300px;
+  border-radius: 30px;
   cursor: pointer;
 }
 
 .image-overlay {
   position: absolute;
-
-  /* top: 22rem;
+  top: 10px;
   left: 0;
-  margin-left: 290px; */
+  margin-left: 145px;
 }
 
 h1 {
@@ -207,4 +225,5 @@ h1 {
 p {
   font-family: 'Karma', serif;
   font-size: 0.9rem;
+}
 }
