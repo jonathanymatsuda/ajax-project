@@ -360,13 +360,14 @@ function editEntry(event) {
 }
 
 const getDistilleryData = () => {
+  const params = new URLSearchParams();
+  params.append('url', 'https://whiskyhunter.net/api/distilleries_info/?format=json');
+  const apiRoute = 'https://lfz-cors.herokuapp.com/?' + params;
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://whiskyhunter.net/api/distilleries_info/?format=json');
+  xhr.open('GET', apiRoute);
   xhr.responseType = 'json';
   xhr.addEventListener('load', () => {
     for (let distillery = 0; distillery < xhr.response.length; distillery++) {
-      // console.log(xhr.status);
-      // console.log(xhr.response);
       const $liRow = document.createElement('div');
       $liRow.setAttribute('class', 'row');
 
@@ -427,7 +428,7 @@ const getDistilleryData = () => {
       $columnHalfThree.appendChild($pWhiskybaseRating);
 
       const $columnHalfFour = document.createElement('div');
-      $columnHalfFour.setAttribute('class', 'columm-half');
+      $columnHalfFour.setAttribute('class', 'column-half');
       $rowThree.appendChild($columnHalfFour);
 
       const $pWhiskybaseVotes = document.createElement('p');
